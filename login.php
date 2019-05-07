@@ -1,3 +1,7 @@
+<form method="post" action="deconnexion.php">
+   <input type="submit" value="Se déconnecter" />
+</form>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -28,7 +28,7 @@ try{
             {
                 // sinon  mdp error.
                 echo 'Identifiant ou Mot De Passe incorrect.<br/>';
-                var_dump($_POST['pass']);
+                // var_dump($_POST['pass']);
             }
             else
             {
