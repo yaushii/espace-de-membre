@@ -9,7 +9,7 @@ try{
     }
 // criptage du mots de passe
 
-$hashed_password = crypt($_POST['pass']);
+$hashed_password = crypt($_POST['pass'],$salt);
 // Insertion du message à l'aide d'une requête préparée
 $req = $bdd->prepare('INSERT INTO membre (pseudo, pass, email, date_creation) VALUES(:pseudo, :pass, :email, NOW())');
 $req->execute(array(

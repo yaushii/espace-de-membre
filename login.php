@@ -1,3 +1,8 @@
+<?php  
+
+        //je déclare la variable $cookiePseudo
+        $cookiePseudo = $_COOKIE['pseudo'] ;
+        ?>
 <form method="post" action="deconnexion.php">
    <input type="submit" value="Se déconnecter" />
 </form>
@@ -12,7 +17,7 @@
 </head>
 <body>
     <h1>Mon espace perso</h1>
-
+<p>Bonjour, <?php echo $cookiePseudo; ?></p>
     <?php
 // connection a la bdd
 try{

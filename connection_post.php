@@ -1,4 +1,10 @@
 <?php 
+
+setcookie('pseudo', $_POST['pseudo'], time() + 24*3600, null, null, false, true);
+
+//je déclare la variable $cookiePseudo
+$cookiePseudo = $_COOKIE['pseudo'] ;
+
 try{
     $bdd = new PDO('mysql:host=localhost;dbname=inscription;charset=utf8', 'root', '');
     
@@ -24,7 +30,7 @@ try{
             $resultat = $req->fetch();
 
             // SI la variable $resultat = au mdp ecrit dans le champs input et k'il est bon se connecter.
-            if ($resultat['pass'] != $_POST['pass'])
+            if ($hashed_password == crypt(($_POST['pass']), $salt))
             {
                 // sinon  mdp error.
                 echo 'Identifiant ou Mot De Passe incorrect.<br/>';
@@ -42,7 +48,8 @@ try{
         }
         else
         {
-            echo 'Renseignez un Pseudo/Derbyname et un Mot De Passe.<br/><a href="http://localhost/php/login/connection.php">retour</a>';
+            echo 'Renseignez un Pseudo/Derbyname et un Mot De Passe.<br/><a href="http://localhost/php/login/connection.php">connexion</a>';
         }
     }
 ?>
+$resultat['pass'] != $_POST['pass']
