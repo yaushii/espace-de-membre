@@ -18,6 +18,7 @@
 <body>
     <h1>Mon espace perso</h1>
 <p>Bonjour, <?php echo $cookiePseudo; ?></p>
+<a href="http://localhost/php/login/modifi.php">modifier le mots de passe</a>
     <?php
 // connection a la bdd
 try{

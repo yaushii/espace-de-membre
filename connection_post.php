@@ -21,16 +21,16 @@ try{
             $pseudo = $_POST['pseudo'];
 
         // on SELECTION dans la base de donnée l'ID pass dans la table membre ou(WHERE) le pseudo et egale au pseudo.
-            $req = $bdd->prepare('SELECT id, pass FROM membre WHERE pseudo = :pseudo');
+            $req = $bdd->prepare('SELECT id, pass, pseudo FROM membre WHERE pseudo = :pseudo');
             // parcour  le tableau pseudo
             $req->execute(array(
                 'pseudo' => $pseudo));
 
                 // variable $resultat stocke le resultat de la  requete avec le fetch
             $resultat = $req->fetch();
-
-            // SI la variable $resultat = au mdp ecrit dans le champs input et k'il est bon se connecter.
-            if ($hashed_password == crypt(($_POST['pass']), $salt))
+            $password= md5($_POST['pass']);
+            // SI le mdp crypter est = au mdp ecrit dans le champs input et k'il est bon se connecter.
+            if ($resultat['pass'] != $password )
             {
                 // sinon  mdp error.
                 echo 'Identifiant ou Mot De Passe incorrect.<br/>';
@@ -52,4 +52,4 @@ try{
         }
     }
 ?>
-$resultat['pass'] != $_POST['pass']
+<!-- $resultat['pass'] != $_POST['pass'] -->
